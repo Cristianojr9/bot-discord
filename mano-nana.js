@@ -1,9 +1,11 @@
 import pkg from 'discord.js';
+import 'dotenv/config'
+
 const { Client, Intents, MessageActionRow, MessageButton } = pkg;
 const client = new Client({ intents: [8] });
 
-const channelId = '807232061073129472'; // Substitua pelo ID do canal desejado
-const intervaloDeHoras = 6; // Configurar para 24 horas para enviar uma vez por dia
+const channelId = process.env.CHANNEL_ID;
+const intervaloDeHoras = 6;
 
 client.once('ready', () => {
     console.log(`Bot está conectado como ${client.user.tag}`);
@@ -21,7 +23,7 @@ const mensagens = [
   'Burro, burro, burro',
   'seu coco, catarrento, bobalhão',
   'bom dia seus adestrador de tejo',
-  'Eu perguntei a Deus do céu, ai. \n Por que tamanha judiação?',
+  'Eu perguntei a Deus do céu, ai.\n Por que tamanha judiação?',
   'bom dia vaqueirama do ceará, eu amo a Ana Castela',
   'Ana Castela a maior artista do mundo',
   'Vai um mel de abelha?', 
@@ -41,5 +43,5 @@ async function enviarMensagemDiaria() {
     canal.send(mensagens[Math.floor(Math.random() * mensagens.length)]);
 }
 
-const token = 'MTE4NTI2ODI5Mjc1NjE4NTEyOA.GZrd8T.ynt2u3muT2YTXeajAAQRBUlnoXR0hEvPlXwCYg'; // Substitua pelo token do seu bot
+const token = process.env.BOT_TOKEN;
 client.login(token);
