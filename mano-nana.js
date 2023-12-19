@@ -1,7 +1,7 @@
 import pkg from 'discord.js';
 import 'dotenv/config'
 
-const { Client, Intents, MessageActionRow, MessageButton } = pkg;
+const { Client } = pkg;
 const client = new Client({ intents: [8] });
 
 const channelId = process.env.CHANNEL_ID;
