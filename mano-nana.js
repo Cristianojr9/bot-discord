@@ -35,7 +35,7 @@ async function enviarMensagemDiaria() {
 
     console.log(curHr);
 
-    if (curHr < 12) {
+    if (curHr > 8 && curHr < 12) {
       canal.send(`Bom dia grupo, ${mensagens[Math.floor(Math.random() * mensagens.length)]}`);
     } else if (curHr < 18) {
       canal.send(`Boa tarde comunidade, ${mensagens[Math.floor(Math.random() * mensagens.length)]}`);
