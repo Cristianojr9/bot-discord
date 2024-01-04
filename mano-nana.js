@@ -28,11 +28,12 @@ const mensagens = [
   'eu te amo Marquin',
 ]
 
-const today = new Date();
-const curHr = today.getHours();
-
 async function enviarMensagemDiaria() {
+    const today = new Date();
+    const curHr = today.getHours();
     const canal = await client.channels.fetch(channelId);
+
+    console.log(curHr);
 
     if (curHr < 12) {
       canal.send(`Bom dia grupo, ${mensagens[Math.floor(Math.random() * mensagens.length)]}`);
